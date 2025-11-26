@@ -1,100 +1,115 @@
-/* ---------- Global Styles (Light Theme) ---------- */
-body {
-    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-    background: #f0f2f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    transition: background 0.3s ease, color 0.3s ease;
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
+
+/* ---------- THEME VARIABLES ---------- */
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #11131f;
+    --muted: #6c778e;
+    --border: rgba(0,0,0,0.1);
+    --primary: #3c5af0;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    --gradient: linear-gradient(to bottom, #ffffff, #e8edff);
 }
 
-/* Centered layout */
-.container {
-    max-width: 900px;
-    margin: auto;
+body.dark {
+    --bg: #0a0c14;
+    --card: #111622;
+    --text: #f5f7ff;
+    --muted: #9aa0b5;
+    --border: rgba(255,255,255,0.1);
+    --primary: #7b8cff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.4);
+    --gradient: linear-gradient(to bottom, #0c1120, #05060b);
+}
+
+/* ---------- GLOBAL STYLES ---------- */
+body {
+    font-family: "Space Grotesk", sans-serif;
+    margin: 0;
+    background: var(--gradient);
+    color: var(--text);
+    transition: 0.3s ease;
     padding: 20px;
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 40px 0;
+/* Simple fade animation */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-#profile-img {
-    width: 150px;
-    border-radius: 50%;
-    border: 5px solid white;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    margin-bottom: 15px;
+/* ---------- NAVBAR ---------- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    animation: fadeUp 0.5s ease;
 }
 
-h1, h2, h3 {
-    font-weight: 600;
-    margin: 10px 0;
+nav a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-left: 16px;
 }
 
-/* Card Style Sections */
-.section {
-    background: white;
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+nav a:hover {
+    color: var(--text);
 }
 
-.section:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-/* Buttons */
+/* Theme toggle */
 button {
-    padding: 12px 28px;
-    margin-top: 20px;
-    cursor: pointer;
-    border: none;
+    background: var(--primary);
+    color: white;
+    padding: 8px 16px;
     border-radius: 8px;
-    background-color: #4A6CF7;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.25s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #3354e0;
-    transform: translateY(-3px);
+    opacity: 0.9;
 }
 
-button:active {
-    transform: translateY(0);
+/* ---------- SECTIONS ---------- */
+section {
+    background: var(--card);
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin: 20px 0;
+    animation: fadeUp 0.6s ease;
 }
 
-/* ---------- Dark Theme ---------- */
-body.dark {
-    background: #121212;
-    color: #e5e5e5;
+h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
 }
 
-body.dark .section {
-    background: #1e1e1e;
-    box-shadow: 0 6px 15px rgba(255,255,255,0.04);
+/* ---------- CARDS / ITEMS ---------- */
+.card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
 }
 
-body.dark .section:hover {
-    box-shadow: 0 12px 30px rgba(255,255,255,0.06);
+.card:hover {
+    border-color: var(--primary);
 }
 
-body.dark #profile-img {
-    border-color: #333;
-}
-
-body.dark button {
-    background-color: #1f6feb;
-}
-
-body.dark button:hover {
-    background-color: #1158c7;
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--muted);
 }
